@@ -19,7 +19,7 @@ class Card:
 deck = [Card(rank, suit, value) for rank, value in zip(ranks,values) for suit in suits]
 
 
-print("Welcome to Black Jack")
+print("Welcome to Black Jack\n")
 # print("Shuffling \n")
 random.shuffle(deck)
 # print(deck[0].name)
@@ -59,7 +59,8 @@ for card in playerCards:
 print("Player total count = {} \n".format(playerCount))
 
 # displaying the dealer's up card (2nd) and adding the dealers cards to their count
-print("Dealer shows: \n{} \n".format(dealerCards[1].name))
+print("Dealer shows: \nFace-Down Card\n{}".format(dealerCards[1].name))
+print("Dealer known count = {}\n".format(dealerCards[1].value))
 for card in dealerCards:
     dealerCount += card.value
 
