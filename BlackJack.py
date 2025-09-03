@@ -20,9 +20,12 @@ class Card:
 replay = "y"
 gamesPlayed = 0
 winStreak = 0
-
+bestStreak = 0
 
 while replay == "Y" or replay == "y":
+
+    if winStreak > bestStreak:
+        bestStreak = winStreak
     deck = [Card(rank, suit, value) for rank, value in zip(ranks,values) for suit in suits]
 
     print("---------------------")
@@ -88,7 +91,9 @@ while replay == "Y" or replay == "y":
         # if player drew Ace and a 10 value card
         elif playerCount == 21:
             pNatural = True
-            print("Blackjack! You got 21!\n")
+            print("---------------------")
+            print("Blackjack! You got 21!")
+            print("---------------------\n")
 
         # Ace and below 2 through 9 value card
         else: print("Player has 'Soft' {} or {}\n".format(playerCount-10,playerCount))
@@ -121,7 +126,9 @@ while replay == "Y" or replay == "y":
         hit = ""
     # asking if player wants to draw a card when under 21.  
     elif dealerCards[1].rank == "Ace":
+        print("--------------------------------")
         print("Checking dealer for Blackjack...")
+        print("--------------------------------")
         if  dNatural:
             print("Dealer Blackjack! Sorry\n")
             hit = ""
